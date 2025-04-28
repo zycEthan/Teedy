@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<ruleset name="Teedy Custom PMD Rules"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+    <description>Custom ruleset for Teedy project metrics</description>
+
+    <!-- Lines of Code (LoC) -->
+    <rule ref="category/java/size.xml/NcssCount">
+        <properties>
+            <property name="minimum" value="100"/> <!-- 调整阈值 -->
+        </properties>
+    </rule>
+
+    <!-- Cyclomatic Complexity (CC) -->
+    <rule ref="category/java/design.xml/CyclomaticComplexity">
+        <properties>
+            <property name="reportLevel" value="10"/> <!-- 调整阈值 -->
+        </properties>
+    </rule>
+
+    <!-- Weighted Methods per Class (WMC) -->
+    <rule ref="category/java/design.xml/GodClass">
+        <properties>
+            <property name="threshold" value="50"/> <!-- 综合复杂度阈值 -->
+        </properties>
+    </rule>
+
+    <!-- Coupling Between Objects (CBO) -->
+    <rule ref="category/java/design.xml/CouplingBetweenObjects"/>
+
+    <!-- Lack of Cohesion in Methods (LCOM) -->
+    <rule ref="category/java/design.xml/LackOfCohesionInMethods"/>
+</ruleset>
