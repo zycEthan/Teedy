@@ -36,9 +36,9 @@ pipeline {
                 sh 'mvn site'
             }
         }
-stage('Package') {
- 	steps {
- 		sh 'mvn package -DskipTests'
+	stage('Package') {
+ 		steps {
+ 			sh 'mvn package -DskipTests'
  		}
  	}
  }
