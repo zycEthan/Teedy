@@ -1,53 +1,63 @@
 pipeline {
     agent any
+
     stages {
         stage('Clean') {
             steps {
-                sh 'mvn clean'
+                bat 'mvn clean'
             }
         }
         stage('Compile') {
             steps {
-                sh 'mvn compile'
+                bat 'mvn compile'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test -Dmaven.test.failure.ignore=true'
+                bat 'mvn test -Dmaven.test.failure.ignore=true'
             }
         }
         stage('PMD') {
             steps {
-                sh 'mvn pmd:pmd'
+                bat 'mvn pmd:pmd'
+                // 如果 PMD 检查失败但不想中断构建，可以改为：
+                // bat 'mvn pmd:pmd -Dpmd.skip=false -Dpmd.failOnViolation=false'
             }
         }
         stage('JaCoCo') {
             steps {
-                sh 'mvn jacoco:report'
+                bat 'mvn jacoco:report'
             }
         }
         stage('Javadoc') {
             steps {
-                sh 'mvn javadoc:javadoc'
+                bat 'mvn javadoc:javadoc'
             }
         }
         stage('Site') {
             steps {
-                sh 'mvn site'
+                bat 'mvn site'
             }
         }
-	stage('Package') {
- 		steps {
- 			sh 'mvn package -DskipTests'
- 		}
- 	}
- }
- post {
- 	always {
- 		archiveArtifacts artifacts: '**/target/site/**/*.*', fingerprint: true
- 		archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
- 		archiveArtifacts artifacts: '**/target/**/*.war', fingerprint: true
-		 junit '**/target/surefire-reports/*.xml'
- 		}
- 	}
- }
+        stage('Package') {
+            steps {
+                bat 'mvn package -DskipTests'
+            }
+        }
+    }
+
+    post {
+        always {
+            // 归档生成的报告和构建产物
+            archiveArtifacts artifacts: '**/target/site/**/*.*', fingerprint: true
+            archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+            archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
+            
+            // 收集测试结果
+            junit '**/target/surefire-reports/*.xml'
+            
+            // 可选：清理工作空间以节省磁盘空间
+            cleanWs()
+        }
+    }
+}
