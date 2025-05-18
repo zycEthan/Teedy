@@ -14,7 +14,16 @@
     "password_lost_sent_title": "密码重置邮件已发送",
     "password_lost_sent_message": "重置密码的邮件已经发送至<strong>{{ username }}</strong>",
     "password_lost_error_title": "密码重置出错",
-    "password_lost_error_message": "无法发送密码重置邮件，请联系您的管理员进行手动重置"
+    "password_lost_error_message": "无法发送密码重置邮件，请联系您的管理员进行手动重置",
+    "register": "注册",
+    "register_submit_title": "注册申请结果",
+    "register_submit_message": "您的注册申请已成功提交，请等待管理员审核",
+    "register_submit_error_message": "提交注册申请失败，请稍后重试或联系管理员",
+    "register_username_taken": "此用户名已被占用",
+    "register_email_invalid": "请提供有效的电子邮箱地址",
+    "register_password_mismatch": "两次输入的密码不一致",
+    "register_success_title": "注册申请已发送",
+    "register_success_message": "您的注册申请已成功提交"
   },
   "passwordlost": {
     "title": "丢失密码",
@@ -26,6 +35,20 @@
     "submit": "更改我的密码",
     "error_title": "密码更改出错",
     "error_message": "您的密码恢复请求已过期，请在登录页面上提交新的请求"
+  },
+  "register": {
+    "title": "新用户注册",
+    "username": "用户名",
+    "email": "电子邮箱",
+    "storage_quota": "存储配额",
+    "storage_quota_placeholder": "请输入存储配额",
+    "password": "密码",
+    "password_confirm": "确认密码",
+    "submit": "提交注册",
+    "register_username_exists": "此用户名已存在",
+    "register_username_taken": "该用户名正在审核中",
+    "success_title": "注册申请已提交",
+    "success_message": "您的注册申请已成功提交，请等待管理员审核"
   },
   "index": {
     "toggle_navigation": "切换导航",
@@ -244,6 +267,7 @@
     "menu_users": "用户",
     "menu_groups": "群组",
     "menu_vocabularies": "词条",
+    "menu_register": "注册申请",
     "menu_configuration": "配置",
     "menu_inbox": "收件箱扫描",
     "menu_server_logs": "服务器日志",
@@ -272,6 +296,24 @@
         "password_lost_sent_title": "密码重置邮件已发送",
         "password_lost_sent_message": "密码重置电子邮件已发送至 <strong>{{ username }}</strong>"
       }
+    },
+    "register": {
+      "title": "注册申请管理",
+      "username": "用户名",
+      "email": "电子邮箱",
+      "storage": "存储需求",
+      "submit_time": "提交时间",
+      "operation_title": "操作",
+      "operation_btn_approve": "批准",
+      "operation_btn_reject": "拒绝",
+      "approve_title": "批准申请",
+      "approve_message": "确定批准用户 {{ username }} 的注册申请吗？",
+      "approve_success": "已成功批准该用户注册申请",
+      "reject_title": "拒绝申请",
+      "reject_message": "确定拒绝用户 {{ username }} 的注册申请吗？",
+      "reject_success": "已成功拒绝该用户注册申请",
+      "empty_applications": "暂无注册申请",
+      "loading": "正在加载申请列表..."
     },
     "workflow": {
       "title": "工作流程<small>配置</small>",
