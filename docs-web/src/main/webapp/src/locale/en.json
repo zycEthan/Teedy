@@ -14,7 +14,16 @@
     "password_lost_sent_title": "Password reset email sent",
     "password_lost_sent_message": "An email has been sent to <strong>{{ username }}</strong> to reset your password",
     "password_lost_error_title": "Password reset error",
-    "password_lost_error_message": "Unable to send a password reset email, please contact your administrator for a manual reset"
+    "password_lost_error_message": "Unable to send a password reset email, please contact your administrator for a manual reset",
+    "register": "Register",
+    "register_submit_title": "注册申请结果",
+    "register_submit_message": "您的注册申请已成功提交，请等待管理员审核",
+    "register_submit_error_message": "提交注册申请失败，请稍后重试或联系管理员",
+    "register_username_taken": "此用户名已被占用",
+    "register_email_invalid": "请提供有效的电子邮箱地址",
+    "register_password_mismatch": "两次输入的密码不一致",
+    "register_success_title": "注册申请已发送",
+    "register_success_message": "您的注册申请已成功提交"
   },
   "passwordlost": {
     "title": "Password lost",
@@ -26,6 +35,15 @@
     "submit": "Change my password",
     "error_title": "Error changing your password",
     "error_message": "Your password recovery request is expired, please ask for a new one on the login page"
+  },
+  "register": {
+    "title": "New Account",
+    "username": "Username",
+    "email": "E-mail",
+    "password": "Password",
+    "password_confirm": "Password (confirm)",
+    "submit": "Register",
+    "register_username_exists": "This username already exists"
   },
   "index": {
     "toggle_navigation": "Toggle navigation",
@@ -274,6 +292,7 @@
     "menu_general_settings": "General settings",
     "menu_workflow": "Workflow",
     "menu_users": "Users",
+    "menu_register": "application register",
     "menu_groups": "Groups",
     "menu_vocabularies": "Vocabularies",
     "menu_configuration": "Configuration",
@@ -326,6 +345,24 @@
         "disable_totp_message": "Are you sure you want to disable two-factor authentication for this user?"
       }
     },
+    "register": {
+        "title": "Register Applications",
+        "username": "Username",
+        "email": "Email",
+        "storage": "Required Storage",
+        "submit_time": "Submit Time",
+        "operation_title": "Operation",
+        "operation_btn_approve": "Approve",
+        "operation_btn_reject": "Reject",
+        "approve_title": "Approve Application",
+        "approve_message": "Are you sure you want to approve the registration for {{ username }}?",
+        "approve_success": "Registration application has been approved successfully",
+        "reject_title": "Reject Application",
+        "reject_message": "Are you sure you want to reject the registration for {{ username }}?",
+        "reject_success": "Registration application has been rejected successfully",
+        "empty_applications": "No pending registration applications",
+        "loading": "Loading application list..."
+      },
     "workflow": {
       "title": "Workflow configuration",
       "add_workflow": "Add a workflow",

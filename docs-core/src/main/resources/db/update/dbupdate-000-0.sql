@@ -13,6 +13,22 @@ create cached table T_DOCUMENT_TAG ( DOT_ID_C varchar(36) not null, DOT_IDDOCUME
 create cached table T_ACL ( ACL_ID_C varchar(36) not null, ACL_PERM_C varchar(30) not null, ACL_SOURCEID_C varchar(36) not null, ACL_TARGETID_C varchar(36) not null, ACL_DELETEDATE_D datetime, primary key (ACL_ID_C) );
 create cached table T_SHARE ( SHA_ID_C varchar(36) not null, SHA_NAME_C varchar(36), SHA_CREATEDATE_D datetime, SHA_DELETEDATE_D datetime, primary key (SHA_ID_C) );
 create cached table T_AUDIT_LOG ( LOG_ID_C varchar(36) not null, LOG_IDENTITY_C varchar(36) not null, LOG_CLASSENTITY_C varchar(50) not null, LOG_TYPE_C varchar(50) not null, LOG_MESSAGE_C varchar(1000), LOG_CREATEDATE_D datetime, primary key (LOG_ID_C) );
+create cached table T_REGISTER_USER (
+    -- 申请唯一标识
+    REG_ID_C varchar(36),
+    -- 基础用户信息
+    REG_USERNAME_C varchar(50) not null,
+    REG_EMAIL_C varchar(100),
+    REG_PASSWORD_C varchar(60),
+    -- 资源配置
+    REG_STORAGE_N bigint not null,
+    -- 状态跟踪
+    REG_SUBMIT_TIME_D datetime not null,
+    REG_STATUS_N integer default 0 not null check (REG_STATUS_N between 0 and 2),
+    REG_OPERATED_TIME_D datetime,
+    -- 主键约束
+    primary key(REG_ID_C)
+);
 
 alter table T_AUTHENTICATION_TOKEN add constraint FK_AUT_IDUSER_C foreign key (AUT_IDUSER_C) references T_USER (USE_ID_C) on delete restrict on update restrict;
 alter table T_DOCUMENT add constraint FK_DOC_IDUSER_C foreign key (DOC_IDUSER_C) references T_USER (USE_ID_C) on delete restrict on update restrict;
