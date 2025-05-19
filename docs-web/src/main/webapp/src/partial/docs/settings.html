@@ -1,32 +1,257 @@
+<style>
+  /* 整体容器样式优化 - 更新配色 */
+  .settings-container {
+    background-color: #f9fafb;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    padding: 20px;
+  }
+
+  /* 侧边菜单优化 - 新色系 */
+  .settings-menu {
+    padding-right: 0;
+  }
+
+  .settings-menu .panel {
+    margin-bottom: 22px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+    overflow: hidden;
+    transition: all 0.3s;
+    background-color: #fff;
+  }
+
+  .settings-menu .panel:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.06);
+  }
+
+  .settings-menu .panel-heading {
+    background-color: #f3f6f4;
+    border-bottom: 1px solid #eaefeb;
+    color: #344348;
+    font-weight: 600;
+    padding: 16px 18px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .settings-menu .panel-heading .fas {
+    margin-right: 10px;
+    color: #2e7d32; /* 绿色系主色 */
+  }
+
+  .settings-menu .list-group {
+    margin-bottom: 0;
+  }
+
+  /* 菜单项优化 - 新色系 */
+  .settings-menu .list-group-item {
+    padding: 13px 18px;
+    color: #4a5459;
+    border-color: #f1f5f2;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.25s ease;
+    background-color: #fff;
+  }
+
+  .settings-menu .list-group-item .fas {
+    min-width: 22px;
+    margin-right: 10px;
+    color: #588b6b;
+  }
+
+  .settings-menu .list-group-item:first-child {
+    border-top: none;
+  }
+
+  .settings-menu .list-group-item:last-child {
+    border-bottom: none;
+  }
+
+  /* 活动菜单项强化 - 绿色系 */
+  .settings-menu .list-group-item.active {
+    background-color: #eef7f0;
+    color: #2e7d32;
+    border-color: #d4e9d8;
+    font-weight: 500;
+    border-left: 3px solid #2e7d32;
+    padding-left: 15px;
+  }
+
+  .settings-menu .list-group-item.active .fas {
+    color: #2e7d32;
+  }
+
+  /* 悬停效果增强 - 新配色 */
+  .settings-menu .list-group-item:hover:not(.active) {
+    background-color: #f5f9f6;
+    transform: translateX(3px);
+  }
+
+  /* 内容区域优化 - 调整阴影和颜色 */
+  .settings-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    min-height: 450px;
+    transition: all 0.3s;
+    border: 1px solid #edf1ee;
+  }
+
+  .settings-content:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+  }
+
+  /* 标题样式增强 - 绿色主题 */
+  .page-header {
+    border-bottom: 2px solid #e9f0eb;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+  }
+
+  .page-header h3 {
+    color: #344348;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+
+  .page-header h3 .fas {
+    margin-right: 12px;
+    color: #2e7d32;
+    font-size: 22px;
+  }
+
+  /* 响应式优化 - 保持原有结构 */
+  @media (max-width: 767px) {
+    .settings-container {
+      padding: 15px;
+    }
+
+    .settings-menu {
+      margin-bottom: 20px;
+      padding-right: 15px;
+    }
+
+    .settings-content {
+      padding: 20px;
+    }
+
+    /* 移动端菜单吸附顶部 */
+    .settings-menu-sticky {
+      position: sticky;
+      top: 10px;
+      z-index: 100;
+    }
+
+    /* 移动端活动菜单高亮 */
+    .settings-menu .list-group-item.active {
+      border-left-width: 5px;
+      padding-left: 13px;
+    }
+  }
+</style>
+
 <div class="row">
-  <div class="col-md-3 settings-menu">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h3>
+        <span class="fas fa-cog"></span>
+        设置
+      </h3>
+    </div>
+  </div>
+</div>
+
+<div class="row settings-container">
+  <!-- 侧边栏菜单 -->
+  <div class="col-md-3 settings-menu settings-menu-sticky">
+    <!-- 个人设置面板 -->
     <div class="panel panel-default">
-      <div class="panel-heading"><strong>{{ 'settings.menu_personal_settings' | translate }}</strong></div>
+      <div class="panel-heading">
+        <span class="fas fa-user-cog"></span>
+        <strong>{{ 'settings.menu_personal_settings' | translate }}</strong>
+      </div>
       <ul class="list-group">
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.account.**' }" href="#/settings/account">{{ 'settings.menu_user_account' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.security.**' }" href="#/settings/security">{{ 'settings.menu_two_factor_auth' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.session.**' }" href="#/settings/session">{{ 'settings.menu_opened_sessions' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.fileimporter.**' }" href="#/settings/fileimporter">{{ 'settings.menu_file_importer' | translate }}</a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/account">
+          <span class="fas fa-user"></span>
+          {{ 'settings.menu_user_account' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/security">
+          <span class="fas fa-shield-alt"></span>
+          {{ 'settings.menu_two_factor_auth' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/session">
+          <span class="fas fa-key"></span>
+          {{ 'settings.menu_opened_sessions' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/fileimporter">
+          <span class="fas fa-key"></span>
+          {{ 'settings.menu_file_importer' | translate }}
+        </a>
       </ul>
     </div>
 
+    <!-- 管理员设置面板 -->
     <div class="panel panel-default" ng-show="isAdmin">
-      <div class="panel-heading"><strong>{{ 'settings.menu_general_settings' | translate }}</strong></div>
+      <div class="panel-heading">
+        <span class="fas fa-tools"></span>
+        <strong>{{ 'settings.menu_general_settings' | translate }}</strong>
+      </div>
       <ul class="list-group">
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.workflow.**' }" href="#/settings/workflow">{{ 'settings.menu_workflow' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.user.**' }" href="#/settings/user">{{ 'settings.menu_users' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.register.**' }" href="#/settings/register">{{ 'settings.menu_register' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.group.**' }" href="#/settings/group">{{ 'settings.menu_groups' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.vocabulary.**' }" href="#/settings/vocabulary">{{ 'settings.menu_vocabularies' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.config.**' }" href="#/settings/config">{{ 'settings.menu_configuration' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.metadata.**' }" href="#/settings/metadata">{{ 'settings.menu_metadata' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.inbox.**' }" href="#/settings/inbox">{{ 'settings.menu_inbox' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.ldap.**' }" href="#/settings/ldap">{{ 'settings.menu_ldap' | translate }}</a>
-        <a class="list-group-item" ui-sref-active="{ active: 'settings.monitoring.**' }" href="#/settings/monitoring">{{ 'settings.menu_monitoring' | translate }}</a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/workflow">
+          <span class="fas fa-user-circle"></span>
+          {{ 'settings.menu_workflow' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/user">
+          <span class="fas fa-users"></span>
+          {{ 'settings.menu_users' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/register">
+          <span class="fas fa-user-plus"></span>
+          {{ 'settings.menu_register' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/group">
+          <span class="fas fa-user-secret"></span>
+          {{ 'settings.menu_groups' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/vocabulary">
+          <span class="fas fa-book"></span>
+          {{ 'settings.menu_vocabularies' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/config">
+          <span class="fas fa-sliders-h"></span>
+          {{ 'settings.menu_configuration' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/metadata">
+          <span class="fas fa-tags"></span>
+          {{ 'settings.menu_metadata' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/inbox">
+          <span class="fas fa-inbox"></span>
+          {{ 'settings.menu_inbox' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/ldap">
+          <span class="fas fa-sitemap"></span>
+          {{ 'settings.menu_ldap' | translate }}
+        </a>
+        <a class="list-group-item" ui-sref-active="active" href="#/settings/monitoring">
+          <span class="fas fa-chart-line"></span>
+          {{ 'settings.menu_monitoring' | translate }}
+        </a>
       </ul>
     </div>
   </div>
 
+  <!-- 设置内容区 -->
   <div class="col-md-9 settings-content">
     <div ui-view="settings"></div>
   </div>

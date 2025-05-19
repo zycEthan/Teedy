@@ -72,6 +72,7 @@
     "search_tags": "Tags",
     "search_shared": "Only shared documents",
     "search_workflow": "Workflow assigned to me",
+    "search_help": "Search with a keyword or a phrase",
     "search_clear": "Clear",
     "any_language": "Any language",
     "add_document": "Add a document",
@@ -284,6 +285,7 @@
     }
   },
   "settings": {
+    "title": "Settings",
     "menu_personal_settings": "Personal settings",
     "menu_user_account": "User account",
     "menu_two_factor_auth": "Two-factor authentication",
