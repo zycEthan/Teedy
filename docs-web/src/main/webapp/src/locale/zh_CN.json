@@ -258,10 +258,12 @@
     }
   },
   "settings": {
+    "title": "设置",
     "menu_personal_settings": "个人设置",
     "menu_user_account": "用户帐号",
     "menu_two_factor_auth": "双重身份验证",
     "menu_opened_sessions": "已打开会话",
+    "menu_file_importer": "批量文件导入",
     "menu_general_settings": "一般设置",
     "menu_workflow": "工作流程",
     "menu_users": "用户",
